@@ -14,6 +14,7 @@
     />
 
     <link rel="stylesheet" href="index.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
 
   <body>
@@ -26,8 +27,8 @@
           <a class="side-nav-tab" href="settings.html">Settings</a>
         </div>
         <div class="side-nav-sep"></div>
-        <div class="profile-tab">Christine</div>
-        <div class="logout-tab">Log Out</div>
+        <a class="profile-tab" href="settings.html">Christine</a>
+        <a class="logout-tab" href="./index.html">Log Out</a>
       </div>
       <div class="container-fluid">
         <div class="top-bar">
@@ -52,13 +53,46 @@
             <button class="widget-btn">Add Widget</button>
           </div>
         </div>
-        <div class="row data-charts">
-          <div class="col"></div>
-          <div class="col"></div>
-          <div class="col"></div>
-          <div class="col"></div>
+        <div class="container-fluid data-charts">
+          <div class="row">
+            <div class="col-12">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Id
+              nostrum earum rerum doloremque autem? Quo molestias nesciunt,
+              maxime repellat ipsa doloribus necessitatibus, porro quam quia
+              ipsum temporibus alias eligendi iusto.
+            </div>
+          </div>
+          <div class="row">
+            <div class="chart">
+              <div class="chart-head">Balance</div>
+              <canvas id="myPieChart" class="pie" width="140px"></canvas>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </body>
+  <script>
+    const ctx = document.getElementById("myPieChart").getContext("2d");
+
+    const data = {
+      datasets: [
+        {
+          data: [18, 64, 18],
+          backgroundColor: ["#F5FBFE", "#018FFF", "#FAD679"],
+        },
+      ],
+    };
+
+    const options = {
+      responsive: false,
+      maintainAspectRatio: false,
+    };
+
+    const myPieChart = new Chart(ctx, {
+      type: "pie",
+      data: data,
+      options: options,
+    });
+  </script>
 </html>
